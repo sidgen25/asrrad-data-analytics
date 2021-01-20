@@ -1,0 +1,6 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+10.3.0.15 logstash-init.c.asr-web-portal.internal logstash-init  # Added by Google
+169.254.169.254 metadata.google.internal  # Added by Google
+
+10.3.0.14 elasticsearch-init.c.asr-web-portal.internal elasticsearch kibana # Added by Google

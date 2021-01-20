@@ -1,0 +1,39 @@
+
+version: '2.2'
+services:
+  elasticsearch1:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.9.3
+    container_name: elasticsearch1
+    environment:
+      - node.name=elasticsearch1
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms1024m -Xmx1024m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - /vol/elasticdata1/data:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+    networks:
+      - elastic
+    restart: "always"
+  kibana1:
+    image: docker.elastic.co/kibana/kibana:7.9.3
+    container_name: kibana1
+    ports:
+      - 5601:5601
+    environment:
+      SERVER_HOST: 0.0.0.0
+      SERVER_NAME: kibanahost
+      ELASTICSEARCH_URL: http://elasticsearch-init:9200
+      ELASTICSEARCH_HOSTS: http://elasticsearch-init:9200
+    networks:
+      - elastic
+    restart: "always"
+
+networks:
+  elastic:
+    driver: bridge

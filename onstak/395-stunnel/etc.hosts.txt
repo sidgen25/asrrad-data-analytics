@@ -1,0 +1,4 @@
+127.0.0.1   395-stunnel
+::1         395-stunnel
+10.3.0.15 logstash-init.c.asr-web-portal.internal logstash
+10.3.0.14 elasticsearch-init.c.asr-web-portal.internal kibana
