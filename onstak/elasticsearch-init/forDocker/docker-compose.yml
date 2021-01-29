@@ -30,6 +30,8 @@ services:
       SERVER_NAME: kibanahost
       ELASTICSEARCH_URL: http://elasticsearch-init:9200
       ELASTICSEARCH_HOSTS: http://elasticsearch-init:9200
+    volumes:
+      - ./kibana.yml:/usr/share/kibana/config/kibana.yml
     networks:
       - elastic
     restart: "always"
