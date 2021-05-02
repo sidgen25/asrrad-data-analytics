@@ -1,0 +1,12 @@
+# Module: postgresql
+# Docs: https://www.elastic.co/guide/en/beats/metricbeat/7.10/metricbeat-module-postgresql.html
+
+- module: postgresql
+  metricsets:
+    - database
+    - bgwriter
+    - activity
+  period: 10s
+  hosts: ["postgres://{hostname}:{port}/postgres?sslmode=disable"]
+  username: {username}
+  password: {password}
